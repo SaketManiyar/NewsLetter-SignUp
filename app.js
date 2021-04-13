@@ -28,10 +28,10 @@ app.post("/",function(req, res)
     };
     const jsonData= JSON.stringify(data);
 
-    const url="https://us7.api.mailchimp.com/3.0/lists/29f57eff00";
+    const url=process.env.URL;
     const options={
         method:"POST",
-        auth:"saket1:f76aa6ae362b4b0e6770ecd6c9adc9ce-us7"
+        auth:process.env.AUTH
     }
 
     const request=https.request(url,options,function(response){
@@ -60,8 +60,3 @@ app.listen(process.env.PORT || 3000,function(){         //heroku selects its por
     console.log("Running on port 3000");
 });
 
-//api key
-//f76aa6ae362b4b0e6770ecd6c9adc9ce-us7
-
-//list id
-//29f57eff00
